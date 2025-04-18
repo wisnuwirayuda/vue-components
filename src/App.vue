@@ -1,47 +1,34 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+import Person from "./components/Person.vue";
+import Alert from "./components/Alert.vue";
+import Alerts from "./components/Alerts.vue";
+
+export default {
+  components: {
+    Person,
+    Alert,
+    Alerts
+  },
+  data: () => ({
+    items: 3,
+    show: false,
+    alert: {
+      message: "Message",
+      types: ["success", "warning", "danger"],
+    }
+  })
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="container py-5">
+    <!-- STATIS PROPS -->
+    <!-- <Person age="25" first-name="Wisnu" last-name="Trenggono Wirayuda" /> -->
+    <!-- <Alert message="Hi there" type="success" /> -->
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <!-- DYNAMIC PROPS -->
+    <!-- <Alert :message="items + ' items has been removed'" type="success" :show="true" /> -->
+    <!-- <Alerts :message="items + ' items has been removed'" type="success" :types="['success', 'warning', 'danger']" /> -->
+    <Alerts v-bind="alert" />
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
