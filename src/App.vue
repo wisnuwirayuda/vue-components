@@ -11,7 +11,7 @@ export default {
   },
   data: () => ({
     items: 3,
-    show: false,
+    show: true,
     alert: {
       message: "Message",
       types: ["success", "warning", "danger"],
@@ -31,6 +31,6 @@ export default {
     <!-- <Alert :message="items + ' items has been removed'" type="success" :show="true" /> -->
     <!-- <Alerts :message="items + ' items has been removed'" type="success" :types="['success', 'warning', 'danger']" /> -->
     <!-- <Alerts v-bind="alert" /> -->
-     <Alert message="Alert Message" type="danger" :show="true" />
+    <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" />
   </div>
 </template>
