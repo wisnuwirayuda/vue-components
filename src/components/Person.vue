@@ -7,7 +7,13 @@
 
 <script>
 export default {
-    props: ['firstName', 'lastName', 'age'],
+    // props: ['firstName', 'lastName', 'age'],
+    props: {
+        firstName: String,
+        lastName: String,
+        // age: Number
+        age: [Number, String]
+    },
     computed: {
         fullname() {
             return this.firstName + ' ' + this.lastName;
