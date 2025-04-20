@@ -3,13 +3,15 @@ import Person from "./components/Person.vue";
 import Alert from "./components/Alert.vue";
 import Alerts from "./components/Alerts.vue";
 import LoginForm from "./components/auth/LoginForm.vue";
+import BaseInput from "./components/BaseInput.vue";
 
 export default {
   components: {
     Person,
     Alert,
     Alerts,
-    LoginForm
+    LoginForm,
+    BaseInput
   },
   data: () => ({
     items: 3,
@@ -17,7 +19,8 @@ export default {
     alert: {
       message: "Message",
       types: ["success", "warning", "danger"],
-    }
+    },
+    email: ''
   }),
   methods: {
     handleSubmit(email, password) {
@@ -40,6 +43,9 @@ export default {
     <!-- <Alerts v-bind="alert" /> -->
     <!-- <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" /> -->
 
-    <LoginForm @submit="handleSubmit" />
+    <!-- <LoginForm @submit="handleSubmit" /> -->
+    
+    <BaseInput v-model="email" label="Email" />
+    {{ email }}
   </div>
 </template>
