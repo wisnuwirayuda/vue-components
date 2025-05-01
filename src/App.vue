@@ -5,6 +5,7 @@ import Alerts from "./components/Alerts.vue";
 import LoginForm from "./components/auth/LoginForm.vue";
 import BaseInput from "./components/BaseInput.vue";
 import BaseButton from "./components/BaseButton.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
   components: {
@@ -13,7 +14,8 @@ export default {
     Alerts,
     LoginForm,
     BaseInput,
-    BaseButton
+    BaseButton,
+    Modal
   },
   data: () => ({
     items: 3,
@@ -45,13 +47,31 @@ export default {
     <!-- <Alert :message="items + ' items has been removed'" type="success" :show="true" /> -->
     <!-- <Alerts :message="items + ' items has been removed'" type="success" :types="['success', 'warning', 'danger']" /> -->
     <!-- <Alerts v-bind="alert" /> -->
-    <Alert type="danger" :show="show" @alert-close="show = false">
-    </Alert>
+    <!-- <Alert type="danger" :show="show" @alert-close="show = false">
+    </Alert> -->
 
     <!-- <LoginForm @submit="handleSubmit" v-model:email.lowercase="email" v-model:password="password" /> -->
     
     <!-- <BaseInput v-model.lowercase="email" label="Email" type="email" /> -->
     <!-- <BaseButton text="Submit" theme="primary" @click="show = true" class="mt-3" id="button" /> -->
     <!-- {{ email }} - {{ password }} -->
+
+    <Modal :show="true">
+      <template #header>The Modal Title</template>
+      <template #default>
+        <p>The Modal Body</p>
+      </template>
+      <template #footer>
+        <button class="btn btn-primary">Save</button>
+      </template>
+
+      <!-- <template v-slot:header>The Modal Title</template>
+      <template v-slot:default>
+        <p>The Modal Body</p>
+      </template>
+      <template v-slot:footer>
+        <button class="btn btn-primary">Save</button>
+      </template> -->
+    </Modal>
   </div>
 </template>
