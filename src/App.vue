@@ -20,7 +20,8 @@ export default {
       message: "Message",
       types: ["success", "warning", "danger"],
     },
-    email: ''
+    email: '',
+    password: ''
   }),
   methods: {
     handleSubmit(email, password) {
@@ -43,9 +44,9 @@ export default {
     <!-- <Alerts v-bind="alert" /> -->
     <!-- <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" /> -->
 
-    <!-- <LoginForm @submit="handleSubmit" /> -->
+    <LoginForm @submit="handleSubmit" v-model:email.lowercase="email" v-model:password="password" />
     
-    <BaseInput v-model.lowercase="email" label="Email" />
-    {{ email }}
+    <!-- <BaseInput v-model.lowercase="email" label="Email" /> -->
+    {{ email }} - {{ password }}
   </div>
 </template>
