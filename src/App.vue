@@ -4,6 +4,7 @@ import Alert from "./components/Alert.vue";
 import Alerts from "./components/Alerts.vue";
 import LoginForm from "./components/auth/LoginForm.vue";
 import BaseInput from "./components/BaseInput.vue";
+import BaseButton from "./components/BaseButton.vue";
 
 export default {
   components: {
@@ -11,11 +12,12 @@ export default {
     Alert,
     Alerts,
     LoginForm,
-    BaseInput
+    BaseInput,
+    BaseButton
   },
   data: () => ({
     items: 3,
-    show: true,
+    show: false,
     alert: {
       message: "Message",
       types: ["success", "warning", "danger"],
@@ -42,11 +44,12 @@ export default {
     <!-- <Alert :message="items + ' items has been removed'" type="success" :show="true" /> -->
     <!-- <Alerts :message="items + ' items has been removed'" type="success" :types="['success', 'warning', 'danger']" /> -->
     <!-- <Alerts v-bind="alert" /> -->
-    <!-- <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" /> -->
+    <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" />
 
-    <LoginForm @submit="handleSubmit" v-model:email.lowercase="email" v-model:password="password" />
+    <!-- <LoginForm @submit="handleSubmit" v-model:email.lowercase="email" v-model:password="password" /> -->
     
-    <!-- <BaseInput v-model.lowercase="email" label="Email" /> -->
+    <BaseInput v-model.lowercase="email" label="Email" id="email-address" class="mt-3" />
+    <BaseButton text="Submit" theme="primary" @click="show = true" class="mt-3" id="button" />
     {{ email }} - {{ password }}
   </div>
 </template>
