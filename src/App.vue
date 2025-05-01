@@ -45,7 +45,7 @@ export default {
 
     <!-- <LoginForm @submit="handleSubmit" /> -->
     
-    <BaseInput v-model="email" label="Email" />
+    <BaseInput v-model.lowercase="email" label="Email" />
     {{ email }}
   </div>
 </template>
