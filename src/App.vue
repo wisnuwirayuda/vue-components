@@ -6,6 +6,7 @@ import LoginForm from "./components/auth/LoginForm.vue";
 import BaseInput from "./components/BaseInput.vue";
 import BaseButton from "./components/BaseButton.vue";
 import Modal from "./components/Modal.vue";
+import TodoList from "./components/TodoList.vue";
 
 export default {
   components: {
@@ -15,7 +16,8 @@ export default {
     LoginForm,
     BaseInput,
     BaseButton,
-    Modal
+    Modal,
+    TodoList
   },
   data: () => ({
     items: 3,
@@ -47,9 +49,9 @@ export default {
     <!-- <Alert :message="items + ' items has been removed'" type="success" :show="true" /> -->
     <!-- <Alerts :message="items + ' items has been removed'" type="success" :types="['success', 'warning', 'danger']" /> -->
     <!-- <Alerts v-bind="alert" /> -->
-    <Alert type="success" :show="show" @alert-close="show = false" v-slot="{ alertLink }">
+    <!-- <Alert type="success" :show="show" @alert-close="show = false" v-slot="{ alertLink }">
       The Alert Message <a href="#" :class="alertLink">Alert Link</a>
-    </Alert>
+    </Alert> -->
 
     <!-- <LoginForm @submit="handleSubmit" v-model:email.lowercase="email" v-model:password="password" /> -->
     
@@ -76,5 +78,23 @@ export default {
         <button class="btn btn-primary">Save</button>
       </template>
     </Modal> -->
+
+    <TodoList>
+      <template #default="{ name }">
+        <input type="checkbox" class="form-check-input me-1" />
+        <label class="form-check-label">{{ name }}</label>
+
+        <!-- <p class="mb-0 pb-2">{{ name }}</p>
+        <button class="btn btn-sm btn-success">Done</button> -->
+      </template>
+
+      <template #footer="{ all, todo, done }">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="text-muted">All ({{ all }})</span>
+          <span class="text-muted">Todo ({{ todo }})</span>
+          <span class="text-muted">Done ({{ done }})</span>
+        </div>
+      </template>
+    </TodoList>
   </div>
 </template>
