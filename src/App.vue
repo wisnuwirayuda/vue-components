@@ -17,13 +17,14 @@ export default {
   },
   data: () => ({
     items: 3,
-    show: false,
+    show: true,
     alert: {
       message: "Message",
       types: ["success", "warning", "danger"],
     },
     email: '',
-    password: ''
+    password: '',
+    message: 'Alert Message'
   }),
   methods: {
     handleSubmit(email, password) {
@@ -44,11 +45,12 @@ export default {
     <!-- <Alert :message="items + ' items has been removed'" type="success" :show="true" /> -->
     <!-- <Alerts :message="items + ' items has been removed'" type="success" :types="['success', 'warning', 'danger']" /> -->
     <!-- <Alerts v-bind="alert" /> -->
-    <!-- <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" /> -->
+    <Alert type="danger" :show="show" @alert-close="show = false">
+    </Alert>
 
     <!-- <LoginForm @submit="handleSubmit" v-model:email.lowercase="email" v-model:password="password" /> -->
     
-    <BaseInput v-model.lowercase="email" label="Email" type="email" />
+    <!-- <BaseInput v-model.lowercase="email" label="Email" type="email" /> -->
     <!-- <BaseButton text="Submit" theme="primary" @click="show = true" class="mt-3" id="button" /> -->
     <!-- {{ email }} - {{ password }} -->
   </div>
