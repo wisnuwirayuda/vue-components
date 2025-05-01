@@ -2,12 +2,13 @@
     <div class="mb-3">
         <label class="form-label">{{ label }}</label>
         <!-- <input type="text" class="form-control" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" /> -->
-        <input type="text" class="form-control" v-model="value" />
+        <input v-bind="$attrs" class="form-control" v-model="value" />
     </div>
 </template>
 
 <script>
 export default {
+    // inheritAttrs: false, // Menonaktifkan pewarisan attribut
     props: {
         label: {
             type: String,

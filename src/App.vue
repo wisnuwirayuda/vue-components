@@ -44,12 +44,12 @@ export default {
     <!-- <Alert :message="items + ' items has been removed'" type="success" :show="true" /> -->
     <!-- <Alerts :message="items + ' items has been removed'" type="success" :types="['success', 'warning', 'danger']" /> -->
     <!-- <Alerts v-bind="alert" /> -->
-    <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" />
+    <!-- <Alert message="Alert Message" type="danger" :show="show" @alert-close="show = false" /> -->
 
     <!-- <LoginForm @submit="handleSubmit" v-model:email.lowercase="email" v-model:password="password" /> -->
     
-    <BaseInput v-model.lowercase="email" label="Email" id="email-address" class="mt-3" />
-    <BaseButton text="Submit" theme="primary" @click="show = true" class="mt-3" id="button" />
-    {{ email }} - {{ password }}
+    <BaseInput v-model.lowercase="email" label="Email" type="email" />
+    <!-- <BaseButton text="Submit" theme="primary" @click="show = true" class="mt-3" id="button" /> -->
+    <!-- {{ email }} - {{ password }} -->
   </div>
 </template>
