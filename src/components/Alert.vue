@@ -1,6 +1,6 @@
 <template>
     <div :class="['alert', 'alert-' + type, 'alert-dismissible']" v-show="show">
-        <slot>Default Message</slot>
+        <slot :alertLink="alertLink">Default Message</slot>
         <!-- {{ message }} -->
     </div>
     <button type="button" class="btn-close" @click="close">X</button>
@@ -29,5 +29,8 @@ export default {
         }
     },
     emits: ['alertClose'],
+    data: () => ({
+        alertLink: 'alert-link'
+    })
 }
 </script>
